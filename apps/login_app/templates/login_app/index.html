@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title></title>
+        <meta charset="UTF-8">
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.css" rel="stylesheet">
+    </head>
+    <body>
+        {% if messages %}
+            {% for message in messages %}
+            <p>{{ message }}</p>
+            {% endfor %}
+        {% endif %}
+
+        <h3>Registration</h3>
+        <form class ="" action= '/process' method = "POST" >
+            {% csrf_token %}
+            <label for="first_name">First Name:</label>
+            <input type="text" name="first_name" value="">
+            <label for="last_name">Last Name:</label>
+            <input type="text" name="last_name" value="">
+            <label for="email">Email:</label>
+            <input type="text" name="email" value="">
+            <label for="password">Password:</label>
+            <input type="password" name="password" value="">
+            <label for="confirm_pw">Confirm password:</label>
+            <input type="password" name="confirm_pw" value="">
+            <input class="button-primary" type="submit" name="submit" value="Register">
+        </form>
+        <h3>Login</h3>
+        <form class ="" action= '/login' method = "POST" >
+            {% csrf_token %}
+            <label for="email">Email:</label>
+            <input type="text" name="email" value="">
+            <label for="password">Password:</label>
+            <input type="password" name="password" value="">
+            <input class="button-primary" type="submit" name="submit" value="Login">
+        </form>
+    </body>
+</html>

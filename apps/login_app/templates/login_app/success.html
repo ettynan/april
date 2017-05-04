@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title></title>
+        <meta charset="UTF-8">
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.css" rel="stylesheet">
+    </head>
+    <body>
+        <h1>Successfully logged in, {{ request.session.first_name }} </h1>
+        <!--<table><!--for easier debugging make a table for use while making program-->
+            <!--<tr>
+                <th>First name</th>
+                <th>Last name</th>
+                <th>Email</th>
+                <th>Made</th>
+                <th>Updated</th>
+            </tr>
+            {% for idx in users %}
+            <tr>
+                <td>{{ idx.first_name }}</td>
+                <td>{{ idx.last_name }}</td>
+                <td>{{ idx.email }}</td>
+                <td>{{ idx.created_at }}</td>
+                <td>{{ idx.updated_at }}</td>
+                <td><form action = "remove/{{idx.id}}" method = "POST"> <!--for easier debugging-->
+                <!--{% csrf_token %}
+                <input class = "button-primary" type="submit" name="submit" value="Remove">
+                </form></td>
+            </tr>
+             {% endfor %}
+        </table>-->
+        <hr>
+        <form method = 'POST' action = '/clear'>
+            {% csrf_token %}
+            <input type="submit" name="clear" value="logout">
+        </form>
+    </body>
+</html>
